@@ -1,5 +1,6 @@
 package com.example.librarymanagementsystem
 
+import android.content.Context
 import android.os.Bundle
 import android.window.SplashScreen
 import androidx.activity.ComponentActivity
@@ -17,18 +18,30 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.rememberNavController
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieAnimatable
 import com.airbnb.lottie.compose.rememberLottieComposition
+import com.example.librarymanagementsystem.api.PASSWORD_KEY
+import com.example.librarymanagementsystem.api.RetrofitInstance
+import com.example.librarymanagementsystem.api.USER_NAME_KEY
+import com.example.librarymanagementsystem.api.dataStore
+import com.example.librarymanagementsystem.models.LoginSignUpRequest
+import com.example.librarymanagementsystem.models.LoginSignupResponse
 import com.example.librarymanagementsystem.presentation.MainScreenComposable
 import com.example.librarymanagementsystem.presentation.authentication.AuthenticationGraph
 import com.example.librarymanagementsystem.ui.theme.LibraryManagementSystemTheme
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import retrofit2.Response
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,13 +50,6 @@ class MainActivity : ComponentActivity() {
         splashScreen.setKeepOnScreenCondition { false }
         enableEdgeToEdge()
         setContent {
-//                var enable by remember { mutableStateOf(true) }
-//                if(enable==true){
-//                    SplashScreen({enable=false})
-//                }
-//                else{
-//
-//                }
                 AuthenticationGraph()
              }
         }

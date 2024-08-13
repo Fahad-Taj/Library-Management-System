@@ -120,6 +120,9 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
 
 
+    // DataStore preferences
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+
 //    implementation("androidx.compose.material3:material3:1.2.1") {
 //        force = true
 //    }
