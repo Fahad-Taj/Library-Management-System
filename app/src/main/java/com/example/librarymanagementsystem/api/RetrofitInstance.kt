@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 // Retrofit object to call api methods
 object RetrofitInstance {
 
-    val baseUrl = "http:192.168.1.26:3000"
+    val baseUrl = "https://library-management-system-express-2.onrender.com"
 
     val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
