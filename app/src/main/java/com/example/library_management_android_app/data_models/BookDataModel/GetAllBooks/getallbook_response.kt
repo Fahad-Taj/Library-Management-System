@@ -1,0 +1,5 @@
+package com.example.library_management_android_app.data_models.BookDataModel.GetAllBooks
+
+import com.example.library_management_android_app.data_models.BookDataModel.GetBookById.getbookbyid_response
+
+class getallbook_response : ArrayList<getbookbyid_response>()
